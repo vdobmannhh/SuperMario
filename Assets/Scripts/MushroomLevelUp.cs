@@ -10,6 +10,6 @@ public class MushroomLevelUp : Mushroom
     {
         GameObject.FindGameObjectWithTag("LifeUp").GetComponent<AudioSource>().Play();
         ChangeUi.life_count++;
-        gameObject.SetActive(false);
+        Destroy( gameObject );
     }
 }

@@ -16,6 +16,6 @@ public class MushroomSizeUp : Mushroom
         shake.shakeDuration = 1.0f;
         
         ChangeUi.setMushroomDisplay(true);
-        gameObject.SetActive(false);
+        Destroy( gameObject );
     }
 }

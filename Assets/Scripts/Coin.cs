@@ -19,6 +19,7 @@ public class Coin : QuestionBlockItem
             GameObject.FindGameObjectWithTag("CoinSound").GetComponent<AudioSource>().Play();
         }
         ChangeUi.scoreInc("Coin");
+        Destroy( gameObject );
     }
 
     protected override void OnStart()

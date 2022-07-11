@@ -36,7 +36,7 @@ public class FloatingCoin : MonoBehaviour
                 ChangeUi.coin_count += COINT_COUNT;
                 GameObject.FindGameObjectWithTag("CoinSound").GetComponent<AudioSource>().Play();
             }   
-            gameObject.SetActive(false);
+            Destroy( gameObject );
         }
     }
 }

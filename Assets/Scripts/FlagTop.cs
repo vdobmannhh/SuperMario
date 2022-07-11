@@ -16,7 +16,6 @@ public class FlagTop : MonoBehaviour
     {
         if (obj.gameObject.CompareTag("Player") || obj.gameObject.CompareTag("PlayerHead") || obj.gameObject.CompareTag("PlayerFeet"))
         {
-            print("TOP");
             hitFlagTop = true;
         }
     }

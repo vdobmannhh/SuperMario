@@ -388,7 +388,7 @@ public class FirstPersonController : MonoBehaviour
 		else
 		{
 			ChangeUi.life_count--;
-			StartCoroutine(WaitThenResetLevel(3f, "MainScene"));
+			StartCoroutine(WaitThenResetLevel(3f, "Scene"));
 		}
 		ChangeUi.resetUI();
 		shootScript.enabled = false;

@@ -13,8 +13,6 @@ public class Shoot : MonoBehaviour
     {
         if (Actions.GetShootAction().GetStateUp(SteamVR_Input_Sources.Any))
         {
-            print("Shoooot");
-            
             GameObject ball = Instantiate(shootObject,shootPoint.position, shootPoint.rotation);
             ball.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce);
         }
