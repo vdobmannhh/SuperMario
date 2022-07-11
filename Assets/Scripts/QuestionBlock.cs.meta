@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3850e99aa5ce043739870aa9fa1c7533
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blockPrefab: {fileID: 4920311126272179972, guid: d4af4041c971346799aba7ffcb768868,
+      type: 3}
+  - mushroomPrefab: {instanceID: 0}
+  - firePrefab: {instanceID: 0}
+  - mushroomLifePrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

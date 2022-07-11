@@ -32,5 +32,45 @@ namespace Valve.VR
                 return SteamVR_Actions.platformer_Jump;
             }
         }
+        
+        public virtual SteamVR_Action_Pose Pose
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Pose;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Select
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Select;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Tube
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Tube;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Shoot
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Shoot;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Menu
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Menu;
+            }
+        }
     }
 }
