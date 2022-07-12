@@ -334,9 +334,11 @@ public class FirstPersonController : MonoBehaviour
 				powerUp = 1;
 				break;
 			case "Flower":
+				GameObject.FindGameObjectWithTag("PowerUpSound").GetComponent<AudioSource>().Play();
 				powerUp = 2;
 				break;
 			case "Star":
+				GameObject.FindGameObjectWithTag("StarTheme").GetComponent<AudioSource>().Play();
 				star = true;
 				break;
 			default:
@@ -352,7 +354,7 @@ public class FirstPersonController : MonoBehaviour
 				die();
 				break;
 			case 1:
-				GameObject.FindGameObjectWithTag("OofSound").GetComponent<AudioSource>().Play();
+				GameObject.FindGameObjectWithTag("PowerDownSound").GetComponent<AudioSource>().Play();
 				transform.localScale /= PLAYER_SCALE_UP;
 				GroundedRadius /= PLAYER_SCALE_UP;
 				HeadRadius /= PLAYER_SCALE_UP;
@@ -361,7 +363,7 @@ public class FirstPersonController : MonoBehaviour
 				ChangeUi.setMushroomDisplay(false);
 				break;
 			case 2:
-				GameObject.FindGameObjectWithTag("OofSound").GetComponent<AudioSource>().Play();
+				GameObject.FindGameObjectWithTag("PowerDownSound").GetComponent<AudioSource>().Play();
 				powerUp = 1;
 				invincible = true;
 				shootScript.enabled = false;

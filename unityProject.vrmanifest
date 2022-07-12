@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.supermario.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Projekte\\SuperMario\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\dreit\\VanessaMarioVr\\SuperMario\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "SuperMario [Testing]"

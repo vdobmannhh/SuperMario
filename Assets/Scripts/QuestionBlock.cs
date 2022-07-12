@@ -81,18 +81,22 @@ public class QuestionBlock : MonoBehaviour
 
         if (mushroomSizeUp != null)
         {
+            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
             initiateObject(mushroomSizeUp);
         }
         else if (mushroomLifeUp)
         {
+            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
             initiateObject(mushroomLifeUp);
         }
         else if (fire != null)
         {
+            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
             initiateObject(fire);
         }
         else if (star != null)
         {
+            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
             initiateObject(QuestionBlockItems.GetItemPrefab(itemType));
         }
         else if (coin != null)

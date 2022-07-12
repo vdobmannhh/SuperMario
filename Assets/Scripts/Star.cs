@@ -8,6 +8,7 @@ public class Star : QuestionBlockItem
     public float limit = 10;
     private RainbowColor rainbowColor;
     private FirstPersonController firstPersonController;
+    private AudioSource starTheme;
     // Start is called before the first frame update
 
     protected override void ItemSpecalizedBehavior()
@@ -16,10 +17,12 @@ public class Star : QuestionBlockItem
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
         firstPersonController.star = true;
+        starTheme.Play();
     }
 
     protected override void OnStart()
     {
+        starTheme = GameObject.FindGameObjectWithTag("StarTheme").GetComponent<AudioSource>();
         firstPersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         rainbowColor = GameObject.FindGameObjectWithTag("Light").GetComponent<RainbowColor>();
         startTime = Time.time;
@@ -32,7 +35,8 @@ public class Star : QuestionBlockItem
         {
             firstPersonController.star = false;
             rainbowColor.enabled = false;
-            Destroy( gameObject );
+            gameObject.SetActive(false);
+            starTheme.Stop();
         }
     }
 }
