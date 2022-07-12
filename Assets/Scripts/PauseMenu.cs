@@ -33,6 +33,15 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Actions.GetSelectAction().GetStateUp(SteamVR_Input_Sources.Any))
+        {
+            print("clicked");
+            // print(levelCompleteUI.activeSelf);
+            // print(mainMenuUI.activeSelf);
+            // print(optionsMenuUI.activeSelf);
+        }
+        
         if (!levelCompleteUI.activeSelf && !mainMenuUI.activeSelf && !optionsMenuUI.activeSelf
             && Actions.GetMenuAction().GetStateUp(SteamVR_Input_Sources.Any))
         {

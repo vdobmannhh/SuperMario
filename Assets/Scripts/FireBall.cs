@@ -21,15 +21,18 @@ public class FireBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
+        
         if (collision.transform.CompareTag("Goomba"))
         {
             collision.gameObject.GetComponent<Goomba>().die(Goomba.DeathTypes.DeathExplosion);
             Destroy(this.gameObject);
         }
-        else if (!collision.transform.CompareTag("Ground") && !collision.transform.CompareTag("RightHand"))
+        else if (!collision.transform.CompareTag("Ground") && !collision.transform.CompareTag("RightHand") && !collision.transform.CompareTag("Player") && !collision.transform.CompareTag("InvisibleWalls"))
         {
             GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
             explosion.transform.localScale *= explosionScale;
+            print(collision.transform.tag +  "    " +  collision.transform.name);
             Destroy(this.gameObject);
         }
     }

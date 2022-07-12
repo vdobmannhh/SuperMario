@@ -13,6 +13,37 @@ TagManager:
   - ShadowSphere
   - PlayerHead
   - PlayerFeet
+  - Ground
+  - Actions
+  - Fader
+  - FireFlowerDisplay
+  - RightHand
+  - LeftHand
+  - MushroomDisplay
+  - BrickExplosion
+  - Underworld
+  - MushroomSound
+  - Light
+  - MainTheme
+  - FlagpoleSound
+  - GoombaStomp
+  - PipeSound
+  - OofSound
+  - CoinSound
+  - WaahSound
+  - LifeUp
+  - invincibleBrick
+  - FlagBar
+  - FlagTop
+  - StarTheme
+  - PowerUpSound
+  - GoombaExplosionSound
+  - FireballSound
+  - PowerDownSound
+  - ItemPopupSound
+  - ClickSound
+  - Fence
+  - InvisibleWalls
   layers:
   - Default
   - TransparentFX
