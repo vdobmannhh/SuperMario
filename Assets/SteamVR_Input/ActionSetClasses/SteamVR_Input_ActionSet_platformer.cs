@@ -72,5 +72,13 @@ namespace Valve.VR
                 return SteamVR_Actions.platformer_Menu;
             }
         }
+        
+        public virtual SteamVR_Action_Boolean Accept
+        {
+            get
+            {
+                return SteamVR_Actions.platformer_Accept;
+            }
+        }
     }
 }

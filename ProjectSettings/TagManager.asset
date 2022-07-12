@@ -10,7 +10,6 @@ TagManager:
   - FxTemporaire
   - Goomba
   - Tube
-  - ShadowSphere
   - PlayerHead
   - PlayerFeet
   - Ground
@@ -44,6 +43,7 @@ TagManager:
   - ClickSound
   - Fence
   - InvisibleWalls
+  - Abyss
   layers:
   - Default
   - TransparentFX

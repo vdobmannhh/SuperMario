@@ -283,16 +283,16 @@ public class FirstPersonController : MonoBehaviour
 
 			_verticalVelocity += Gravity * Time.deltaTime;
 		}
-
-		// if (transform.position.y <= 0.0f && dead == false && !invincibleMode)
-		// {
-		// 	dead = true;
-		// 	die();
-		// }
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit collision)
 	{
+		if (!invincible && collision.gameObject.CompareTag("Abyss") && dead == false)
+		{
+			dead = true;
+			die();
+		}
+		
 		if (collision.rigidbody == null)
 		{
 			return;
@@ -376,10 +376,13 @@ public class FirstPersonController : MonoBehaviour
 
 	private void die()
 	{
+		print("die");
 		invincible = true;
 		GameObject.FindGameObjectWithTag("WaahSound").GetComponent<AudioSource>().Play();
+		
 		GameObject.FindGameObjectWithTag("Fader").GetComponent<FadeOutController>()
 			.FadeScreen(SceneManager.GetActiveScene().name);
+		
 		if (ChangeUi.life_count <= 0)
 		{
 			StartCoroutine(WaitThenResetLevel(3f, "MainScene"));

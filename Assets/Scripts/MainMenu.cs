@@ -8,15 +8,19 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject optionsMenu;
     public GameObject gameStatistics;
+    private FirstPersonController firstPersonController;
 
     private void Start()
     {
         gameStatistics.SetActive(false);
+        firstPersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
     }
 
     public void PlayGame()
     {
+        print("playGame");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        firstPersonController.enabled = true;
         gameStatistics.SetActive(true);
         ChangeUi.resetUI();
         ChangeUi.life_count = 3;

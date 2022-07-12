@@ -27,6 +27,10 @@
     {
       "name": "/actions/platformer/in/Menu",
       "type": "boolean"
+    },
+    {
+      "name": "/actions/platformer/in/Accept",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -97,7 +101,8 @@
       "/actions/platformer/in/Select": "Select",
       "/actions/platformer/in/Tube": "Tube",
       "/actions/platformer/in/Shoot": "Shoot",
-      "/actions/platformer/in/Menu": "Menu"
+      "/actions/platformer/in/Menu": "Menu",
+      "/actions/platformer/in/Accept": "Accept"
     }
   ]
 }

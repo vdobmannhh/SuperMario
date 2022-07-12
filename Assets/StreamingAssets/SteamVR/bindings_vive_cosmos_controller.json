@@ -71,7 +71,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/platformer/in/select"
+                     "output" : "/actions/platformer/in/accept"
                   }
                },
                "mode" : "button",
@@ -80,7 +80,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/platformer/in/select"
+                     "output" : "/actions/platformer/in/accept"
                   }
                },
                "mode" : "button",
