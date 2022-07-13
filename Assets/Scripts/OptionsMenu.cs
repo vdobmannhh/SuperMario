@@ -58,18 +58,25 @@ public class OptionsMenu : MonoBehaviour
 
     public void RaiseVolume()
     {
-        AudioListener.volume += 0.1f;
-        volumeValueText.text = AudioListener.volume.ToString("0.0");
+        if (AudioListener.volume < 1.0f)
+        {
+            AudioListener.volume += 0.1f;
+            volumeValueText.text = AudioListener.volume.ToString("0.0");
+        }
     }
 
     public void DecreaseVolume()
     {
-        AudioListener.volume -= 0.1f;
-        volumeValueText.text = AudioListener.volume.ToString("0.0");
+        if (AudioListener.volume > 0.0f)
+        {
+            AudioListener.volume -= 0.1f;
+            volumeValueText.text = AudioListener.volume.ToString("0.0");
+        }
     }
     public void ApplySettings()
     {
         PlayerPrefs.SetInt("invincibleMode", ConvertBoolToInt(invincibleToggle.isOn));
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
+        backtoMainMenu();
     }
 }

@@ -143,7 +143,7 @@ public class FirstPersonController : MonoBehaviour
 		Move();
 		InvincibleCheck();
 	}
-
+	
 	// Update after Frameupdate
 	private void LateUpdate()
 	{

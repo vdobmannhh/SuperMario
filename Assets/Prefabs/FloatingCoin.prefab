@@ -119,8 +119,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8465296920218816509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9cd84d290a4a84ca81033bf7d40232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRotation: 1
+  minRotation: 0.5

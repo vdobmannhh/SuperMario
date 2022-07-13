@@ -15,6 +15,7 @@ public class LaserPointer : MonoBehaviour
     public GameObject playerUICanvas;
     public GameObject optionsMenuUI;
     public GameObject mainMenuUI;
+    public GameObject levelCompleteUI;
     private PauseMenu pauseMenu;
     private OptionsMenu optionsMenu;
     private MainMenu mainMenu;
@@ -131,7 +132,8 @@ public class LaserPointer : MonoBehaviour
         } else if (e.target.name == "LevelCompleteMenuButton")
         {
             print("menu");
-            optionsMenu.backtoMainMenu();
+            levelCompleteUI.SetActive(false);
+            pauseMenu.LoadMenu();
         } else if (e.target.name == "LevelCompleteQuitButton")
         {
             print("quit");
