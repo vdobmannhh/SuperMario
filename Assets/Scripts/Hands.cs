@@ -16,7 +16,7 @@ public class Hands : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y + offsetFactor.y,
-            playerTransform.position.z);
+        transform.position = new Vector3(playerTransform.position.x + offsetFactor.x, playerTransform.position.y + offsetFactor.y,
+            playerTransform.position.z + offsetFactor.z);
     }
 }

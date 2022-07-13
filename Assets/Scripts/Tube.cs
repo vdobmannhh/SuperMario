@@ -8,10 +8,6 @@ public class Tube : MonoBehaviour
     public GameObject endofTube;
     public bool leadsToSecret = false;
     public bool leadsOutOfSecret = false;
-
-
-    private const float offset = 2.5f;
-
     private bool isPlayerOnTube = false;
     private bool playerAnimation = false;
     private bool up = false;
@@ -20,7 +16,7 @@ public class Tube : MonoBehaviour
     private FirstPersonController firstPersonController;
     private CapsuleCollider capsuleCollider;
     private SphereCollider sphereCollider;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,37 +39,17 @@ public class Tube : MonoBehaviour
             GameObject.FindGameObjectWithTag("PipeSound").GetComponent<AudioSource>().Play();
             var position = transform.position;
             player.transform.position = new Vector3(position.x,
-                                                    player.transform.position.y,
-                                                    position.z);
+                player.transform.position.y,
+                position.z);
         }
 
         if (playerAnimation)
         {
-            if (!up)
-            {
-                player.transform.position -= new Vector3(0, Time.deltaTime * animationSpeed, 0);
-                if (player.transform.position.y <= 0)
-                {
-                    if (leadsToSecret)
-                    {
-                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Pause();
-                    }
-                    else if (leadsOutOfSecret)
-                    {
-                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Play();
-                    }
-                    GameObject.FindGameObjectWithTag("PipeSound").GetComponent<AudioSource>().Play();
-                    up = true;
-                    var position = endofTube.transform.position;
-                    player.transform.position = new Vector3(position.x,
-                                                            0,
-                                                            position.z);
-                }
-            }
-            else 
+            if (up)
             {
                 player.transform.position += new Vector3(0, Time.deltaTime * animationSpeed, 0);
-                if (player.transform.position.y >= endofTube.transform.position.y + offset)
+                if (player.transform.position.y >= endofTube.transform.position.y +
+                    endofTube.GetComponent<Collider>().bounds.extents.y)
                 {
                     if (leadsToSecret)
                     {
@@ -83,12 +59,35 @@ public class Tube : MonoBehaviour
                     {
                         GameObject.FindGameObjectWithTag("Underworld").GetComponent<AudioSource>().Pause();
                     }
+
                     playerAnimation = false;
                     up = false;
                     firstPersonController.enabled = true;
                     capsuleCollider.enabled = true;
                     sphereCollider.enabled = true;
                     isPlayerOnTube = false;
+                }
+            }
+            else
+            {
+                player.transform.position -= new Vector3(0, Time.deltaTime * animationSpeed, 0);
+                if (player.transform.position.y <= transform.position.y)
+                {
+                    if (leadsToSecret)
+                    {
+                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Pause();
+                    }
+                    else if (leadsOutOfSecret)
+                    {
+                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Play();
+                    }
+
+                    GameObject.FindGameObjectWithTag("PipeSound").GetComponent<AudioSource>().Play();
+                    up = true;
+                    var position = endofTube.transform.position;
+                    player.transform.position = new Vector3(position.x,
+                        endofTube.transform.position.y,
+                        position.z);
                 }
             }
         }
@@ -100,10 +99,10 @@ public class Tube : MonoBehaviour
         {
             // Check if Players Position is in center of Tube
             if ((System.Math.Abs(player.transform.position.x - transform.position.x) <= targetRadius)
-                       && (System.Math.Abs(player.transform.position.z - transform.position.z) <= targetRadius))
+                && (System.Math.Abs(player.transform.position.z - transform.position.z) <= targetRadius))
             {
                 isPlayerOnTube = true;
-            }          
+            }
         }
     }
 
@@ -114,5 +113,4 @@ public class Tube : MonoBehaviour
             isPlayerOnTube = false;
         }
     }
-
 }

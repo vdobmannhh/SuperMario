@@ -18,12 +18,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject levelCompleteUI;
     public GameObject laserPointerHand;
     public GameObject spawnPoint;
-    public GameObject cloud;
-
     private GameObject player;
 
     private float lastSwitched;
-    
+
     public GameObject shadowSphere;
 
     private SteamVR_LaserPointer laserPointerScript;
@@ -41,16 +39,6 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (Actions.GetSelectAction().GetStateUp(SteamVR_Input_Sources.Any))
-        {
-            print("clicked");
-            // print(levelCompleteUI.activeSelf);
-            // print(mainMenuUI.activeSelf);
-            // print(optionsMenuUI.activeSelf);
-        }
-        
         if (!levelCompleteUI.activeSelf && !mainMenuUI.activeSelf && !optionsMenuUI.activeSelf
             && Actions.GetMenuAction().GetStateUp(SteamVR_Input_Sources.Any))
         {
@@ -72,47 +60,29 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         shadowSphere.SetActive(false);
-        // player.transform.position = playerPosition;
-        // player.GetComponent<FirstPersonController>().enabled = true;
-        // Destroy(tempCloud);
     }
 
     public void Pause()
     {
-        // print(player.transform.position);
-        // playerPosition = player.transform.position;
-        // tempCloud = Instantiate(this.cloud, new Vector3(playerPosition.x, playerPosition.y + 20.0f, playerPosition.z - 5.0f),  Quaternion.identity);
-        //
-        // // player.GetComponent<FirstPersonController>().enabled = false;
-
-        // player.transform.position =
-        //     new Vector3(tempCloud.transform.position.x, tempCloud.transform.position.y + tempCloud.GetComponent<Collider>().bounds.extents.y,
-        //         tempCloud.transform.position.z);
-        //
-        print(player.transform.position);
-
- 
-        
         laserPointerScript.enabled = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-      //  shadowSphere.SetActive(true);
-        
-        
+        //  shadowSphere.SetActive(true);
     }
 
     public void LoadMenu()
     {
         print("Load Menu");
-        
-        Time.timeScale = 1f;
-       player.transform.position = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y + spawnPoint.GetComponent<Collider>().bounds.extents.y,
-           spawnPoint.transform.position.z);
 
-       player.GetComponent<FirstPersonController>().enabled = false;
+        Time.timeScale = 1f;
+        player.transform.position = new Vector3(spawnPoint.transform.position.x,
+            spawnPoint.transform.position.y + spawnPoint.GetComponent<Collider>().bounds.extents.y,
+            spawnPoint.transform.position.z);
+
+        player.GetComponent<FirstPersonController>().enabled = false;
         print(player.transform.position);
-        
+
         mainMenuUI.SetActive(true);
         shadowSphere.SetActive(false);
         pauseMenuUI.SetActive(false);
