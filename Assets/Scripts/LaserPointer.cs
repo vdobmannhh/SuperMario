@@ -125,7 +125,7 @@ public class LaserPointer : MonoBehaviour
         } else if (e.target.name == "MainMenuQuitButton")
         {
             print("quit");
-            optionsMenu.backtoMainMenu();
+            pauseMenu.QuitGame();
         } else if (e.target.name == "LevelCompleteNewGameButton")
         {
             print("newgame");

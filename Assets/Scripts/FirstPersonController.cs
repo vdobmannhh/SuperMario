@@ -103,7 +103,9 @@ public class FirstPersonController : MonoBehaviour
 
 	private bool dead = false;
 
-	private Shoot shootScript; 
+	private Shoot shootScript;
+
+	private Hands hands;
 	
 // ------------------------------------------------------------------------------------------------------------------------ Methods
 
@@ -129,6 +131,7 @@ public class FirstPersonController : MonoBehaviour
 		_fallTimeoutDelta = FallTimeout;
 
 		shootScript = GameObject.FindGameObjectWithTag("RightHand").GetComponent<Shoot>();
+		hands = GameObject.FindGameObjectWithTag("Hands").GetComponent<Hands>();
 	}
 
 	// Frameupdate
@@ -326,6 +329,7 @@ public class FirstPersonController : MonoBehaviour
 				GroundedRadius *= PLAYER_SCALE_UP;
 				HeadRadius *= PLAYER_SCALE_UP;
 				powerUp = 1;
+				hands.offsetFactor += new Vector3(0, 0.37f, 0); 
 				break;
 			case "Flower":
 				Sounds.GetAudioSource(Sounds.AudioType.PowerUp).Play();
@@ -352,6 +356,7 @@ public class FirstPersonController : MonoBehaviour
 				transform.localScale /= PLAYER_SCALE_UP;
 				GroundedRadius /= PLAYER_SCALE_UP;
 				HeadRadius /= PLAYER_SCALE_UP;
+				hands.offsetFactor -= new Vector3(0, 0.37f, 0); 
 				powerUp = 0;
 				invincible = true;
 				ChangeUi.setMushroomDisplay(false);
