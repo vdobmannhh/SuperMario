@@ -1,22 +1,41 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class QuestionBlock : MonoBehaviour
 {
-    public QuestionBlockItems.QuestionBlockItemType itemType;
-    
-    public GameObject block = null;
-    public int coinsCount = 1;
-    public GameObject coin = null;
-    public GameObject mushroomSizeUp = null;
-    public GameObject mushroomLifeUp = null;
-    public GameObject fire = null;
-    public GameObject star = null;
+    public enum ItemType
+    {
+        None,
+        Coin,
+        MushroomSizeUp,
+        MushroomLifeUp,
+        Fire,
+        Star
+    };
 
-    public float explosionForce = 200f;
-    public float explosionRadius = 3f;
-    public float explosionUpward = 20.0f;
+    [Header("Item hidden in QuestionBlock")] [Tooltip("Item to get when Player hits QuestionBlock")] [SerializeField]
+    private ItemType itemType;
 
-    public float animationSpeed = 4f;
+    [SerializeField] private int itemCount = 1;
+
+
+    [Header("Item Pop Up")] [Tooltip("How Item jumps out of QuestionBlock")] [SerializeField]
+    private float explosionForce = 200f;
+
+    [SerializeField] private float explosionRadius = 3f;
+    [SerializeField] private float explosionUpward = 20.0f;
+    [SerializeField] private float animationSpeed = 4f;
+
+    [Header("Prefabs")] [Tooltip("Which Prefabs to Use")] [SerializeField]
+    private GameObject coin;
+
+    [SerializeField] private GameObject mushroomSizeUp;
+    [SerializeField] private GameObject mushroomLifeUp;
+    [SerializeField] private GameObject fireFlower;
+    [SerializeField] private GameObject star;
+    [SerializeField] private GameObject block;
+
+
     private bool hitanimation = false;
     private bool up = true;
     private const float MAXHEIGHT = 0.5f;
@@ -26,6 +45,8 @@ public class QuestionBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider obj)
     {
+        if (itemType == ItemType.None) return;
+
         if (obj.gameObject.CompareTag("PlayerHead"))
         {
             hitanimation = true;
@@ -79,33 +100,14 @@ public class QuestionBlock : MonoBehaviour
     {
         bool disable = true;
 
-        if (mushroomSizeUp != null)
-        {
-            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
-            initiateObject(mushroomSizeUp);
-        }
-        else if (mushroomLifeUp)
-        {
-            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
-            initiateObject(mushroomLifeUp);
-        }
-        else if (fire != null)
-        {
-            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
-            initiateObject(fire);
-        }
-        else if (star != null)
-        {
-            GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
-            initiateObject(QuestionBlockItems.GetItemPrefab(itemType));
-        }
-        else if (coin != null)
-        {
-            coinsCount--;
-            disable = coinsCount == 0;
-            initiateObject(coin);
-        }
+        initiateObject(GetItemPrefab(itemType));
+        PlaySoundOfItemPopUp(itemType);
 
+        if (itemType == ItemType.Coin)
+        {
+            itemCount--;
+            disable = itemCount == 0;
+        }
 
         if (disable)
         {
@@ -114,6 +116,47 @@ public class QuestionBlock : MonoBehaviour
             {
                 Instantiate(block, transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    
+    private void PlaySoundOfItemPopUp(ItemType type)
+    {
+        switch (type)
+        {
+            case ItemType.None:
+                break;
+            case ItemType.Coin:
+                break;
+            case ItemType.MushroomSizeUp:
+            case ItemType.MushroomLifeUp:
+            case ItemType.Fire:
+            case ItemType.Star:
+                GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
+    }
+
+    private GameObject GetItemPrefab(ItemType type)
+    {
+        switch (type)
+        {
+            case ItemType.Coin:
+                return coin;
+            case ItemType.MushroomSizeUp:
+                return mushroomSizeUp;
+            case ItemType.MushroomLifeUp:
+                return mushroomLifeUp;
+            case ItemType.Fire:
+                return fireFlower;
+            case ItemType.Star:
+                return star;
+            case ItemType.None:
+                return null;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
 }

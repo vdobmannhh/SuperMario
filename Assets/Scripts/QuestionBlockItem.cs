@@ -2,6 +2,7 @@
 
 public abstract class QuestionBlockItem : MonoBehaviour
 {
+    
     protected GameObject player;
 
     // Start is called before the first frame update

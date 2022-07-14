@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2728377120350586536}
   - component: {fileID: -4903955808329937484}
   - component: {fileID: 1891673504209693043}
-  - component: {fileID: 583101351324219002}
   m_Layer: 8
   m_Name: go_Question
   m_TagString: Block
@@ -60,36 +59,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
-  block: {fileID: 4920311126272179972, guid: d4af4041c971346799aba7ffcb768868, type: 3}
-  coinsCount: 1
-  coin: {fileID: 1146910833914376871, guid: c43765465ae4f45efa00e81a1c10b3a6, type: 3}
-  mushroomSizeUp: {fileID: 0}
-  mushroomLifeUp: {fileID: 0}
-  fire: {fileID: 0}
-  star: {fileID: 0}
+  itemCount: 1
   explosionForce: 300
   explosionRadius: 3
   explosionUpward: 400
   animationSpeed: 4
---- !u!114 &583101351324219002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7001752145792906307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2053548a2112f47a1fedbd8d25a2e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   coin: {fileID: 1146910833914376871, guid: c43765465ae4f45efa00e81a1c10b3a6, type: 3}
   mushroomSizeUp: {fileID: 5446380668295771095, guid: 84973b9ef6e0c4eb68afe48f2dd7e88a,
     type: 3}
   mushroomLifeUp: {fileID: 5446380668295771095, guid: 44bce56f2dffe45beaee732acc11466c,
     type: 3}
-  fire: {fileID: 3895746655238325712, guid: 5d9afca9a06b345f1a3a8616d5855a79, type: 3}
+  fireFlower: {fileID: 3895746655238325712, guid: 5d9afca9a06b345f1a3a8616d5855a79,
+    type: 3}
   star: {fileID: 2329941177456666232, guid: 7251aca949e6a094a9b1a5be7e67d22b, type: 3}
+  block: {fileID: 4920311126272179972, guid: d4af4041c971346799aba7ffcb768868, type: 3}
 --- !u!1001 &3398115324407313113
 PrefabInstance:
   m_ObjectHideFlags: 0
