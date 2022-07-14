@@ -321,6 +321,7 @@ public class FirstPersonController : MonoBehaviour
 
 	public void PowerUP(string item)
 	{
+		ChangeUi.scoreInc("Shroom");
 		switch (item)
 		{
 			case "Mushroom":
