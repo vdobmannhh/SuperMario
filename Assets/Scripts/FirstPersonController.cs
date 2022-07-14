@@ -376,7 +376,6 @@ public class FirstPersonController : MonoBehaviour
 
 	private void die()
 	{
-		print("die");
 		invincible = true;
 		Sounds.GetAudioSource(Sounds.AudioType.Waah).Play();
 		
