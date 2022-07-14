@@ -21,13 +21,16 @@ public class ChangeUi : MonoBehaviour
 
     private const int COINSCORE = 100;
     private const int KILLSCORE = 200;
-    private const int TIMESCORE = 50;
+    private const int TIMESCORE = 20;
     private const int BRICKSCORE = 10;
-    private const int FLAGHEIGHTSCORE = 100;
+    private const int FINISHSCORE = 100;
     private const int SHROOMSCORE = 500;
+    private const int TOPSCORE = 5000;
     
     private static RawImage mushroomDisplay;
     private static RawImage fireflowerDisplay;
+
+    public static bool finished = false;
 
     void Start()
     {
@@ -43,7 +46,10 @@ public class ChangeUi : MonoBehaviour
         coin_text.text = $"{coin_count:00}";
         life_text.text = "x"+ life_count;
         float delta_time = Time.time - start_time;
-        time_count = MAX_TIME - (int)delta_time;
+        if (!finished)
+        {
+            time_count = MAX_TIME - (int)delta_time;
+        }
         time_text.text = "" + time_count;
         score_text.text = $"{score_count:000000}";
     }
@@ -74,11 +80,16 @@ public class ChangeUi : MonoBehaviour
                 break;
 
             case "Time":
-                score_count += TIMESCORE * (MAX_TIME - time_count);
+                score_count += TIMESCORE * time_count;
+                finished = true;
                 break;
 
             case "Flag":
-                score_count += FLAGHEIGHTSCORE;
+                score_count += FINISHSCORE;
+                break;
+            
+            case "Top":
+                score_count += TOPSCORE;
                 break;
 
             case "Shroom":

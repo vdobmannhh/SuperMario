@@ -10,17 +10,27 @@ public class MainMenu : MonoBehaviour
     public GameObject gameStatistics;
     private FirstPersonController firstPersonController;
 
+    private void Awake()
+    {
+        firstPersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+    }
+
     private void Start()
     {
         gameStatistics.SetActive(false);
-        firstPersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
     }
 
     public void PlayGame()
     {
         print("playGame");
+        ChangeUi.finished = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        firstPersonController.enabled = true;
+
+        if (firstPersonController != null)
+        {
+            firstPersonController.enabled = true;
+        }
+
         gameStatistics.SetActive(true);
         PauseMenu.GameIsPaused = false;
         ChangeUi.resetUI();
