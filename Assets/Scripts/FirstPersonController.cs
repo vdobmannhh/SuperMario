@@ -379,7 +379,7 @@ public class FirstPersonController : MonoBehaviour
 		
 		if (ChangeUi.life_count <= 0)
 		{
-			StartCoroutine(WaitThenResetLevel(3f, "MainScene"));
+			StartCoroutine(WaitThenResetLevel(3f, "Scene"));
 			Cursor.lockState = CursorLockMode.None;
 			ChangeUi.coin_count = 0;
 			ChangeUi.life_count = 3;
