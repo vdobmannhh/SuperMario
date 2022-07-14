@@ -19,11 +19,10 @@ public class LaserPointer : MonoBehaviour
     private PauseMenu pauseMenu;
     private OptionsMenu optionsMenu;
     private MainMenu mainMenu;
-    private AudioSource clicksound;
+
 
     void Awake()
     {
-        clicksound = GameObject.FindGameObjectWithTag("ClickSound").GetComponent<AudioSource>();
         pauseMenu = playerUICanvas.GetComponent<PauseMenu>();
         optionsMenu = optionsMenuUI.GetComponent<OptionsMenu>();
         mainMenu = mainMenuUI.GetComponent<MainMenu>();
@@ -34,7 +33,7 @@ public class LaserPointer : MonoBehaviour
 
     public void PointerClick(object sender, PointerEventArgs e)
     {
-        clicksound.Play();
+        Sounds.GetAudioSource(Sounds.AudioType.Click).Play();
         
         // switch (e.target.name)
         // {
@@ -81,6 +80,8 @@ public class LaserPointer : MonoBehaviour
         //         pauseMenu.QuitGame();
         //         break;
         // }
+        print(PauseMenu.GameIsPaused);
+        
         if (e.target.name == "ResumeButton")
         {
             print("Resume");

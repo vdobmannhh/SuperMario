@@ -140,13 +140,13 @@ public class Goomba : MonoBehaviour
         {
             case DeathTypes.DeathShrink:
             case DeathTypes.DeathFlyAway:
-                GameObject.FindGameObjectWithTag("GoombaStomp").GetComponent<AudioSource>().Play();
+                Sounds.GetAudioSource(Sounds.AudioType.GoombaStomp).Play();
                 GetComponent<Rigidbody>().isKinematic = true;
                 animator.SetBool(dieAnmiation[type], true);
                 animationTime = GetAnimationTimeOfDeath(type);
                 break;
             case DeathTypes.DeathExplosion:
-                GameObject.FindGameObjectWithTag("GoombaExplosionSound").GetComponent<AudioSource>().Play();
+                Sounds.GetAudioSource(Sounds.AudioType.GoombaExplosion).Play();
                 Instantiate(explosionPrefab, transform.position, transform.rotation);
                 break;
             default:

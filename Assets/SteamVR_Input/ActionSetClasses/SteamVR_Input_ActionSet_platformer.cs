@@ -41,14 +41,6 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Select
-        {
-            get
-            {
-                return SteamVR_Actions.platformer_Select;
-            }
-        }
-        
         public virtual SteamVR_Action_Boolean Tube
         {
             get

@@ -132,7 +132,7 @@ public class QuestionBlock : MonoBehaviour
             case ItemType.MushroomLifeUp:
             case ItemType.Fire:
             case ItemType.Star:
-                GameObject.FindGameObjectWithTag("ItemPopupSound").GetComponent<AudioSource>().Play();
+                Sounds.GetAudioSource(Sounds.AudioType.ItemPopUp).Play();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);

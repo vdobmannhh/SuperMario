@@ -27,14 +27,14 @@ public class FloatingCoin : MonoBehaviour
         {
             if (ChangeUi.coin_count + COINT_COUNT >= COINS_TO_LEVEL_UP)
             {
-                GameObject.FindGameObjectWithTag("LifeUp").GetComponent<AudioSource>().Play();
+               Sounds.GetAudioSource(Sounds.AudioType.OneUp).Play();
                 ChangeUi.life_count++;
                 ChangeUi.coin_count = (ChangeUi.coin_count + COINT_COUNT) % COINS_TO_LEVEL_UP;
             }
             else
             {
                 ChangeUi.coin_count += COINT_COUNT;
-                GameObject.FindGameObjectWithTag("CoinSound").GetComponent<AudioSource>().Play();
+                Sounds.GetAudioSource(Sounds.AudioType.Coin).Play();
             }   
             Destroy( gameObject );
         }

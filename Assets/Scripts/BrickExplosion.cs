@@ -37,7 +37,7 @@ public class BrickExplosion : MonoBehaviour
     }
     
     void explode() {
-        GameObject.FindGameObjectWithTag("BrickExplosion").GetComponent<AudioSource>().Play();
+       Sounds.GetAudioSource(Sounds.AudioType.BrickExplosion).Play();
         //make brick block disappear
         gameObject.SetActive(false);
         //create single bricks

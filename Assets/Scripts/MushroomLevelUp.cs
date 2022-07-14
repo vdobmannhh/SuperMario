@@ -8,7 +8,7 @@ public class MushroomLevelUp : Mushroom
     
     protected override void ItemSpecalizedBehavior()
     {
-        GameObject.FindGameObjectWithTag("LifeUp").GetComponent<AudioSource>().Play();
+        Sounds.GetAudioSource(Sounds.AudioType.OneUp).Play();
         ChangeUi.life_count++;
         Destroy( gameObject );
     }

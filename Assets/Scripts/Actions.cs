@@ -16,9 +16,6 @@ public class Actions : MonoBehaviour
     public SteamVR_Action_Boolean menu;
     private static SteamVR_Action_Boolean menuAction;
     
-    public SteamVR_Action_Boolean select;
-    private static SteamVR_Action_Boolean selectAction;
-    
     public SteamVR_Action_Boolean shoot;
     private static SteamVR_Action_Boolean shootAction;
     
@@ -32,7 +29,6 @@ public class Actions : MonoBehaviour
         tubeAction = tube;
         menuAction = menu;
         shootAction = shoot;
-        selectAction = select;
         poseAction = pose;
     }
 
@@ -41,33 +37,30 @@ public class Actions : MonoBehaviour
         return moveAction;
     }
 
-    public static SteamVR_Action_Boolean GetJumpAction()
+    public static bool GetJumpAction()
     {
-        return jumpAction;
+        return jumpAction.state && !PauseMenu.GameIsPaused;
     }
 
-    public static SteamVR_Action_Boolean GetTubeAction()
+    public static bool GetTubeAction()
     {
-        return tubeAction;
+        return tubeAction.state && !PauseMenu.GameIsPaused;
     }
 
-    public static SteamVR_Action_Boolean GetMenuAction()
+    public static bool GetMenuAction()
     {
-        return menuAction;
+        return menuAction.GetStateUp(SteamVR_Input_Sources.Any);
     }
-    
-    public static SteamVR_Action_Boolean GetSelectAction()
+
+    public static bool GetShootAction()
     {
-        return selectAction;
-    }
-    
-    public static SteamVR_Action_Boolean GetShootAction()
-    {
-        return shootAction;
+        return shootAction.GetStateUp(SteamVR_Input_Sources.Any) && !PauseMenu.GameIsPaused;
     }
     
     public static SteamVR_Action_Pose GetPoseAction()
     {
         return poseAction;
     }
+    
+    
 }

@@ -13,10 +13,6 @@
       "type": "pose"
     },
     {
-      "name": "/actions/platformer/in/Select",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/platformer/in/Tube",
       "type": "boolean"
     },
@@ -98,7 +94,6 @@
       "language_tag": "en_US",
       "/actions/platformer/in/Jump": "Jump",
       "/actions/platformer/in/Pose": "Pose",
-      "/actions/platformer/in/Select": "Select",
       "/actions/platformer/in/Tube": "Tube",
       "/actions/platformer/in/Shoot": "Shoot",
       "/actions/platformer/in/Menu": "Menu",

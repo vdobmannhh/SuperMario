@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         firstPersonController.enabled = true;
         gameStatistics.SetActive(true);
+        PauseMenu.GameIsPaused = false;
         ChangeUi.resetUI();
         ChangeUi.life_count = 3;
         ChangeUi.coin_count = 0;

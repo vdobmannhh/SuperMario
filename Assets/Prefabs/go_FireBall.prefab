@@ -4767,8 +4767,8 @@ GameObject:
   - component: {fileID: 8243330392329520857}
   - component: {fileID: 9054237322769353526}
   m_Layer: 0
-  m_Name: go_Fireball
-  m_TagString: Untagged
+  m_Name: go_FireBall
+  m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4800,7 +4800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518649c457c49204181468a90603cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 10
+  shootSpeed: 200
   explosionPrefab: {fileID: 8789257266623720642, guid: 48750c9a5356b5849a74347ab696e556,
     type: 3}
   explosionScale: 0.2

@@ -23,8 +23,6 @@ namespace Valve.VR
         
         private static SteamVR_Action_Pose p_platformer_Pose;
         
-        private static SteamVR_Action_Boolean p_platformer_Select;
-        
         private static SteamVR_Action_Boolean p_platformer_Tube;
         
         private static SteamVR_Action_Boolean p_platformer_Shoot;
@@ -54,14 +52,6 @@ namespace Valve.VR
             get
             {
                 return SteamVR_Actions.p_platformer_Pose.GetCopy<SteamVR_Action_Pose>();
-            }
-        }
-        
-        public static SteamVR_Action_Boolean platformer_Select
-        {
-            get
-            {
-                return SteamVR_Actions.p_platformer_Select.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -103,7 +93,6 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.platformer_Pose,
-                    SteamVR_Actions.platformer_Select,
                     SteamVR_Actions.platformer_Tube,
                     SteamVR_Actions.platformer_Shoot,
                     SteamVR_Actions.platformer_Menu,
@@ -112,7 +101,6 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.platformer_Pose,
-                    SteamVR_Actions.platformer_Select,
                     SteamVR_Actions.platformer_Tube,
                     SteamVR_Actions.platformer_Shoot,
                     SteamVR_Actions.platformer_Menu,
@@ -123,7 +111,6 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Pose};
             Valve.VR.SteamVR_Input.actionsBoolean = new Valve.VR.SteamVR_Action_Boolean[] {
                     SteamVR_Actions.platformer_Jump,
-                    SteamVR_Actions.platformer_Select,
                     SteamVR_Actions.platformer_Tube,
                     SteamVR_Actions.platformer_Shoot,
                     SteamVR_Actions.platformer_Menu,
@@ -136,7 +123,6 @@ namespace Valve.VR
             Valve.VR.SteamVR_Input.actionsNonPoseNonSkeletonIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
-                    SteamVR_Actions.platformer_Select,
                     SteamVR_Actions.platformer_Tube,
                     SteamVR_Actions.platformer_Shoot,
                     SteamVR_Actions.platformer_Menu,
@@ -148,7 +134,6 @@ namespace Valve.VR
             SteamVR_Actions.p_platformer_Move = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/platformer/in/Move")));
             SteamVR_Actions.p_platformer_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Jump")));
             SteamVR_Actions.p_platformer_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/platformer/in/Pose")));
-            SteamVR_Actions.p_platformer_Select = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Select")));
             SteamVR_Actions.p_platformer_Tube = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Tube")));
             SteamVR_Actions.p_platformer_Shoot = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Shoot")));
             SteamVR_Actions.p_platformer_Menu = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Menu")));

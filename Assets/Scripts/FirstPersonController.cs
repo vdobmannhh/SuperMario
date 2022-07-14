@@ -98,11 +98,7 @@ public class FirstPersonController : MonoBehaviour
 	private float invincibleCounter = 0f;
 
 	private const float INVINCIBLETIME = 1.5f;
-
-	private AudioSource jumpSound;
-
-	private AudioSource mainTheme;
-
+	
 	private bool invincibleMode = false;
 
 	private bool dead = false;
@@ -117,9 +113,7 @@ public class FirstPersonController : MonoBehaviour
 		SteamVR.Initialize();
 		invincibleMode = OptionsMenu.ConvertIntToBool(PlayerPrefs.GetInt("invincibleMode"));
 		AudioListener.volume = PlayerPrefs.GetFloat("masterVolume");
-		jumpSound = GetComponent<AudioSource>();
-		mainTheme = GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>();
-		mainTheme.Play();
+		Sounds.GetAudioSource(Sounds.AudioType.MainTheme).Play();
 		_controller = GetComponent<CharacterController>();
 		float HeadOffset = _controller.height - (HeadRadius - (GroundedRadius - Offset));
 		var position = transform.position;
@@ -240,14 +234,14 @@ public class FirstPersonController : MonoBehaviour
 			}
 
 			// Jump
-			 if (Actions.GetJumpAction().state && _jumpTimeoutDelta <= 0.0f)
+			 if (Actions.GetJumpAction() && _jumpTimeoutDelta <= 0.0f)
 			// if (Input.GetButtonDown("Jump") && _jumpTimeoutDelta <= 0.0f)
 			 
 			{
 				// the square root of H * -2 * G = how much velocity needed to reach desired height
 				_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				_controller.stepOffset = defaultStepOffeset;
-				jumpSound.Play();
+				Sounds.GetAudioSource(Sounds.AudioType.Jump).Play();
 			}
 
 			// jump timeout
@@ -327,18 +321,18 @@ public class FirstPersonController : MonoBehaviour
 		switch (item)
 		{
 			case "Mushroom":
-				GameObject.FindGameObjectWithTag("MushroomSound").GetComponent<AudioSource>().Play();
+				Sounds.GetAudioSource(Sounds.AudioType.Mushroom).Play();
 				transform.localScale *= PLAYER_SCALE_UP;
 				GroundedRadius *= PLAYER_SCALE_UP;
 				HeadRadius *= PLAYER_SCALE_UP;
 				powerUp = 1;
 				break;
 			case "Flower":
-				GameObject.FindGameObjectWithTag("PowerUpSound").GetComponent<AudioSource>().Play();
+				Sounds.GetAudioSource(Sounds.AudioType.PowerUp).Play();
 				powerUp = 2;
 				break;
 			case "Star":
-				GameObject.FindGameObjectWithTag("StarTheme").GetComponent<AudioSource>().Play();
+				Sounds.GetAudioSource(Sounds.AudioType.StarTheme).Play();
 				star = true;
 				break;
 			default:
@@ -354,7 +348,7 @@ public class FirstPersonController : MonoBehaviour
 				die();
 				break;
 			case 1:
-				GameObject.FindGameObjectWithTag("PowerDownSound").GetComponent<AudioSource>().Play();
+				Sounds.GetAudioSource(Sounds.AudioType.PowerDown).Play();
 				transform.localScale /= PLAYER_SCALE_UP;
 				GroundedRadius /= PLAYER_SCALE_UP;
 				HeadRadius /= PLAYER_SCALE_UP;
@@ -363,7 +357,7 @@ public class FirstPersonController : MonoBehaviour
 				ChangeUi.setMushroomDisplay(false);
 				break;
 			case 2:
-				GameObject.FindGameObjectWithTag("PowerDownSound").GetComponent<AudioSource>().Play();
+				Sounds.GetAudioSource(Sounds.AudioType.PowerDown).Play();
 				powerUp = 1;
 				invincible = true;
 				shootScript.enabled = false;
@@ -378,7 +372,7 @@ public class FirstPersonController : MonoBehaviour
 	{
 		print("die");
 		invincible = true;
-		GameObject.FindGameObjectWithTag("WaahSound").GetComponent<AudioSource>().Play();
+		Sounds.GetAudioSource(Sounds.AudioType.Waah).Play();
 		
 		GameObject.FindGameObjectWithTag("Fader").GetComponent<FadeOutController>()
 			.FadeScreen(SceneManager.GetActiveScene().name);

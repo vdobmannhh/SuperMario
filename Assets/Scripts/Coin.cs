@@ -9,14 +9,14 @@ public class Coin : QuestionBlockItem
     {
         if (ChangeUi.coin_count + 1 >= COINS_TO_LEVEL_UP)
         {
-            GameObject.FindGameObjectWithTag("LifeUp").GetComponent<AudioSource>().Play();
+           Sounds.GetAudioSource(Sounds.AudioType.OneUp).Play();
             ChangeUi.life_count++;
             ChangeUi.coin_count = 0;
         }
         else
         {
             ChangeUi.coin_count++;
-            GameObject.FindGameObjectWithTag("CoinSound").GetComponent<AudioSource>().Play();
+           Sounds.GetAudioSource(Sounds.AudioType.Coin).Play();
         }
         ChangeUi.scoreInc("Coin");
         Destroy( gameObject );

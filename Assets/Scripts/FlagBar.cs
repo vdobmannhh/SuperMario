@@ -43,8 +43,8 @@ public class FlagBar : MonoBehaviour
             playerFirstPersonController.enabled = false;
             playerCollider.enabled = false;
             playerFeetCollider.enabled = false;
-            GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Stop();
-            GameObject.FindGameObjectWithTag("FlagpoleSound").GetComponent<AudioSource>().Play();
+            Sounds.GetAudioSource(Sounds.AudioType.MainTheme).Stop();
+            Sounds.GetAudioSource(Sounds.AudioType.FlagBar).Play();
         }
 
         if (playerAnimation)

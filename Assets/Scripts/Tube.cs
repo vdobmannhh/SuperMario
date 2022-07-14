@@ -30,13 +30,13 @@ public class Tube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Actions.GetTubeAction().state && isPlayerOnTube && !playerAnimation)
+        if (Actions.GetTubeAction() && isPlayerOnTube && !playerAnimation)
         {
             playerAnimation = true;
             firstPersonController.enabled = false;
             capsuleCollider.enabled = false;
             sphereCollider.enabled = false;
-            GameObject.FindGameObjectWithTag("PipeSound").GetComponent<AudioSource>().Play();
+            Sounds.GetAudioSource(Sounds.AudioType.PipeSound).Play();
             var position = transform.position;
             player.transform.position = new Vector3(position.x,
                 player.transform.position.y,
@@ -53,11 +53,11 @@ public class Tube : MonoBehaviour
                 {
                     if (leadsToSecret)
                     {
-                        GameObject.FindGameObjectWithTag("Underworld").GetComponent<AudioSource>().Play();
+                        Sounds.GetAudioSource(Sounds.AudioType.UnderworldTheme).Play();
                     }
                     else if (leadsOutOfSecret)
                     {
-                        GameObject.FindGameObjectWithTag("Underworld").GetComponent<AudioSource>().Pause();
+                        Sounds.GetAudioSource(Sounds.AudioType.UnderworldTheme).Pause();
                     }
 
                     playerAnimation = false;
@@ -75,14 +75,14 @@ public class Tube : MonoBehaviour
                 {
                     if (leadsToSecret)
                     {
-                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Pause();
+                        Sounds.GetAudioSource(Sounds.AudioType.MainTheme).Pause();
                     }
                     else if (leadsOutOfSecret)
                     {
-                        GameObject.FindGameObjectWithTag("MainTheme").GetComponent<AudioSource>().Play();
+                        Sounds.GetAudioSource(Sounds.AudioType.MainTheme).Play();
                     }
 
-                    GameObject.FindGameObjectWithTag("PipeSound").GetComponent<AudioSource>().Play();
+                    Sounds.GetAudioSource(Sounds.AudioType.PipeSound).Play();
                     up = true;
                     var position = endofTube.transform.position;
                     player.transform.position = new Vector3(position.x,

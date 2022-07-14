@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (!levelCompleteUI.activeSelf && !mainMenuUI.activeSelf && !optionsMenuUI.activeSelf
-            && Actions.GetMenuAction().GetStateUp(SteamVR_Input_Sources.Any))
+            && Actions.GetMenuAction())
         {
             if (GameIsPaused)
             {
