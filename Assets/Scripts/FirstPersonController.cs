@@ -284,7 +284,7 @@ public class FirstPersonController : MonoBehaviour
 
 	private void OnControllerColliderHit(ControllerColliderHit collision)
 	{
-		if (!invincible && collision.gameObject.CompareTag("Abyss") && dead == false)
+		if (!invincibleMode && collision.gameObject.CompareTag("Abyss") && dead == false)
 		{
 			dead = true;
 			die();
