@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 public class MushroomLevelUp : Mushroom
 {
     protected override void OnStart()

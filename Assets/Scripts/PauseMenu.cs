@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using Valve.VR;
+﻿using UnityEngine;
 using Valve.VR.Extras;
-using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class PauseMenu : MonoBehaviour
@@ -21,8 +14,6 @@ public class PauseMenu : MonoBehaviour
     private GameObject player;
 
     private float lastSwitched;
-
-    public GameObject shadowSphere;
 
     private SteamVR_LaserPointer laserPointerScript;
 
@@ -59,7 +50,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        shadowSphere.SetActive(false);
     }
 
     public void Pause()
@@ -68,7 +58,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        //  shadowSphere.SetActive(true);
     }
 
     public void LoadMenu()
@@ -81,7 +70,6 @@ public class PauseMenu : MonoBehaviour
         player.GetComponent<FirstPersonController>().enabled = false;
 
         mainMenuUI.SetActive(true);
-        shadowSphere.SetActive(false);
         pauseMenuUI.SetActive(false);
     }
 

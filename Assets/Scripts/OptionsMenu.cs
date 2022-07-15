@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 public class OptionsMenu : MonoBehaviour
@@ -16,12 +14,6 @@ public class OptionsMenu : MonoBehaviour
         gameStatistics.SetActive(false);
         invincibleToggle.isOn = ConvertIntToBool(PlayerPrefs.GetInt("invincibleMode"));
         volumeValueText.text = PlayerPrefs.GetFloat("masterVolume").ToString("0.0");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void toggleInvincibility()

@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class MushroomSizeUp : Mushroom
+﻿public class MushroomSizeUp : Mushroom
 {
     protected override void OnStart()
     {

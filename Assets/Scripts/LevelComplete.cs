@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR.Extras;
 
 public class LevelComplete : MonoBehaviour
@@ -14,11 +11,5 @@ public class LevelComplete : MonoBehaviour
     {
         laserPointerScript = laserPointerHand.GetComponent<SteamVR_LaserPointer>();
         laserPointerScript.enabled = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

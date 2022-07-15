@@ -1,5 +1,4 @@
-﻿/* SceneHandler.cs*/
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR.Extras;
 
 public class LaserPointer : MonoBehaviour

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class FadeOutController : MonoBehaviour
 {
@@ -10,11 +7,5 @@ public class FadeOutController : MonoBehaviour
     public void FadeScreen(string name)
     {
         animator.SetTrigger("FadeOut");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

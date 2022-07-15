@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Star : QuestionBlockItem
 {
@@ -8,7 +6,6 @@ public class Star : QuestionBlockItem
     public float limit = 10;
     private RainbowColor rainbowColor;
     private FirstPersonController firstPersonController;
-    // Start is called before the first frame update
 
     protected override void ItemSpecalizedBehavior()
     {

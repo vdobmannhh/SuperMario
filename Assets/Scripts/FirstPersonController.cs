@@ -11,9 +11,6 @@ public class FirstPersonController : MonoBehaviour
 	[Header("Player")] [Tooltip("Move speed of the character in m/s")]
 	public float MoveSpeed = 5.5f;
 
-	[Tooltip("Rotation speed of the character")]
-	public float RotationSpeed = 1.5f;
-
 	[Tooltip("Acceleration and deceleration")]
 	public float SpeedChangeRate = 100f;
 
@@ -163,21 +160,10 @@ public class FirstPersonController : MonoBehaviour
 	private void Move()
 	{
 		float targetSpeed = MoveSpeed;
-
-
-        //einkommentieren für kein vr
-
-        //  if (new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) == Vector2.zero)
-        // {
-        //     targetSpeed = 0.0f;
-        // }
-        // -----------------------
-
-        //auskommentieren wenn kein VR
-        Vector2 inputDirection = Actions.GetMoveAction().GetAxis(SteamVR_Input_Sources.Any);
-	//	Vector2 inputDirection = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")).normalized;
 		
-		if (inputDirection == Vector2.zero)
+        Vector2 inputDirection = Actions.GetMoveAction().GetAxis(SteamVR_Input_Sources.Any);
+
+        if (inputDirection == Vector2.zero)
 		{
 			targetSpeed = 0.0f;
 		}
@@ -197,23 +183,7 @@ public class FirstPersonController : MonoBehaviour
 		{
 			_speed = targetSpeed;
 		}
-
-        //einkommentieren wenn kein vr
-        //
-        // Vector3 inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")).normalized;
-        // inputDirection = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
-        //
-        // if (inputDirection.magnitude > 1)
-        // {
-        //     inputDirection = inputDirection.normalized;
-        // }
-        //
-        // _controller.Move(inputDirection * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-        //---------------------
-
-
-        // auskommentieren wenn kein vr
-        // Vector3 inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")).normalized;
+		
         Vector3 resultMoveDirection = transform.right * inputDirection[0] + transform.forward * inputDirection[1];
 
         _controller.Move(resultMoveDirection * (_speed * Time.deltaTime) +
@@ -238,9 +208,7 @@ public class FirstPersonController : MonoBehaviour
 
 			// Jump
 			 if (Actions.GetJumpAction() && _jumpTimeoutDelta <= 0.0f)
-			// if (Input.GetButtonDown("Jump") && _jumpTimeoutDelta <= 0.0f)
-			 
-			{
+			 {
 				// the square root of H * -2 * G = how much velocity needed to reach desired height
 				_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				_controller.stepOffset = defaultStepOffeset;
@@ -400,11 +368,9 @@ public class FirstPersonController : MonoBehaviour
 
 	private IEnumerator WaitThenResetLevel(float seconds, string sceneName)
 	{
-		//Time.timeScale = 0;
 		yield return new WaitForSecondsRealtime(seconds);
 		SceneManager.LoadScene(sceneName);
 		dead = false;
-		//Time.timeScale = 1;
 	}
 
 	private void InvincibleCheck()
