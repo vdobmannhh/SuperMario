@@ -16,7 +16,6 @@ public class OptionsMenu : MonoBehaviour
         gameStatistics.SetActive(false);
         invincibleToggle.isOn = ConvertIntToBool(PlayerPrefs.GetInt("invincibleMode"));
         volumeValueText.text = PlayerPrefs.GetFloat("masterVolume").ToString("0.0");
-        print(volumeValueText.text);
     }
 
     // Update is called once per frame

@@ -73,15 +73,12 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        print("Load Menu");
-
         Time.timeScale = 1f;
         player.transform.position = new Vector3(spawnPoint.transform.position.x,
             spawnPoint.transform.position.y + spawnPoint.GetComponent<Collider>().bounds.extents.y,
             spawnPoint.transform.position.z);
 
         player.GetComponent<FirstPersonController>().enabled = false;
-        print(player.transform.position);
 
         mainMenuUI.SetActive(true);
         shadowSphere.SetActive(false);

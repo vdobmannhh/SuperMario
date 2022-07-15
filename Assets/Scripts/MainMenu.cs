@@ -22,7 +22,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        print("playGame");
         ChangeUi.finished = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 

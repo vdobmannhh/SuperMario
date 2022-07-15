@@ -321,6 +321,7 @@ public class FirstPersonController : MonoBehaviour
 
 	public void PowerUP(string item)
 	{
+		ChangeUi.scoreInc("Shroom");
 		switch (item)
 		{
 			case "Mushroom":
@@ -375,7 +376,6 @@ public class FirstPersonController : MonoBehaviour
 
 	private void die()
 	{
-		print("die");
 		invincible = true;
 		Sounds.GetAudioSource(Sounds.AudioType.Waah).Play();
 		
